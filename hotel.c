@@ -35,6 +35,20 @@ typedef struct{ //definir estrutura de reserva
         int chave;
 }quarto;
 
+
+fazereserva(reserva *res)
+{
+    int i ;
+    FILE *fpreserv;
+    fpreserv=fopen("reservashotel.txt","a+");
+    system("cls");
+    gotoxy(2,2);
+    printf("Nome do Reservante: ");
+    gets(res[i].nome_res);
+
+}
+
+
 menureservas()
 {
     char op;
@@ -132,7 +146,8 @@ char op;
 
 
 
-    }while(1);
+    }while (op!='S' && op!='s');
+;
 }
 
 
@@ -142,7 +157,7 @@ main()
 {
 
     quarto quartoshotel[20];
-    reserva reservashotel[4000];
+    reserva reservahotel[4000];
     int datasreserva[12][31];
     FILE *fpdata,*fpreserv,*fpquart;
     char op;
@@ -162,7 +177,7 @@ main()
         {
             case '1':
             {
-                menureservas();
+                menureservas(reservahotel);
                 break;
             }
             case '2':
